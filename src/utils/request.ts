@@ -67,7 +67,7 @@ export async function request<T extends ResponseType = "json">(input: string | U
                     removeToken()
                     location.href = `/login?from=${encodeURIComponent(`${location.pathname}${location.search}`)}`
                 }
-                if (result.code !== 0) {
+                if (result.code !== 200) {
                     throw new Error(result.msg ?? "接口请求失败")
                 }
                 return result.data
